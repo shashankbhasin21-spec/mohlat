@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Mohlat: paperwork deadline timeline for India–UAE, India–Qatar and India–USA families</title>
+<meta name="description" content="Free tool: enter your Indian passport and UAE residence visa, Qatar QID/residence permit or US document expiry dates. Get a renewal timeline and checklist with official links only. Nothing leaves your device.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="./">Mohlat <span lang="hi">मोहलत</span></a>
+  <nav class="top" aria-label="Main"><a href="#tool">Timeline</a><a href="#agents">Agent check</a><a href="#reminders">Reminders</a></nav>
+</div></header>
+
+<main class="wrap">
+<section class="hero">
+  <h1>Your paperwork deadlines across two countries, on one timeline.</h1>
+  <p class="tagline-hi" lang="hi">दो देशों के काग़ज़, एक टाइमलाइन। समय रहते तैयारी।</p>
+  <p class="lead">For Indian families living between India and the UAE, Qatar or the USA. Enter your Indian passport expiry and your host-country document expiry. Mohlat shows when to start each renewal, a checklist, and <strong>official government links only</strong>.</p>
+  <p class="note"><strong>Privacy:</strong> no data leaves your device. Everything is calculated in your browser. If you tap “Save”, it is stored only in this browser on this device. There are no accounts, no analytics and no cookies.</p>
+  <p class="note warn"><strong>Not legal or immigration advice.</strong> Mohlat gives information and reminders only. Rules change. Always confirm on the official site linked next to each step before you act or pay anything.</p>
+</section>
+
+<section id="tool" aria-labelledby="tool-h">
+  <h2 id="tool-h">1. Build your deadline timeline</h2>
+  <div class="card" id="form-card">
+  <form id="f" novalidate>
+    <label for="who">Whose documents? <span class="hint">Optional label, for example “Me” or “Papa”. Stays on this device.</span></label>
+    <input type="text" id="who" maxlength="40" autocomplete="off" placeholder="Me">
+
+    <label for="pair">Country pair</label>
+    <select id="pair" required>
+      <option value="uae">India and UAE</option>
+      <option value="qatar">India and Qatar</option>
+      <option value="usa">India and USA</option>
+    </select>
+
+    <label for="pp">Indian passport expiry date</label>
+    <input type="date" id="pp" required>
+
+    <fieldset id="fs-uae">
+      <div class="row two">
+        <div>
+          <label for="uae-date">UAE residence visa expiry date</label>
+          <input type="date" id="uae-date">
+        </div>
+        <div>
+          <label for="uae-em">Visa issued by</label>
+          <select id="uae-em">
+            <option value="icp">Abu Dhabi, Sharjah, Ajman, UAQ, RAK or Fujairah (ICP)</option>
+            <option value="dxb">Dubai (GDRFA Dubai)</option>
+          </select>
+        </div>
+      </div>
+      <label for="uae-cat">Residence category <span class="hint">Used only to show the grace period ICP lists for your category.</span></label>
+      <select id="uae-cat">
+        <option value="unknown">Not sure</option>
+        <option value="180">Golden, Green or Blue Residence holder, or their family member (and other groups ICP lists for 180 days)</option>
+        <option value="90">Skilled worker, levels 1–3, or property owner</option>
+        <option value="60">Residence issued with a guarantor or host</option>
+        <option value="30">All other categories (for example a regular employment or family visa)</option>
+      </select>
+    </fieldset>
+
+    <fieldset id="fs-qatar" class="hidden">
+      <label for="qa-date">Qatar residence permit (QID) expiry date</label>
+      <input type="date" id="qa-date">
+    </fieldset>
+
+    <fieldset id="fs-usa" class="hidden">
+      <div class="row two">
+        <div>
+          <label for="us-type">US document</label>
+          <select id="us-type">
+            <option value="gc10">Green Card (10-year)</option>
+            <option value="gc2">Conditional Green Card (2-year)</option>
+            <option value="ead">Employment Authorization Document (EAD)</option>
+            <option value="h1b">I-94 end date: H-1B / L-1 or other employer-petition status</option>
+            <option value="i539">I-94 end date: H-4, L-2, B-1/B-2 or other status extended with Form I-539</option>
+            <option value="visa">US visa stamp in passport (for travel)</option>
+          </select>
+        </div>
+        <div>
+          <label for="us-date">Expiry / end date on that document</label>
+          <input type="date" id="us-date">
+        </div>
+      </div>
+    </fieldset>
+
+    <p id="err" class="note danger hidden" role="alert"></p>
+    <div class="btns">
+      <button type="submit">Show my timeline</button>
+      <button type="button" class="secondary" id="sample">Try sample dates</button>
+    </div>
+  </form>
+  </div>
+
+  <div id="out" class="hidden" aria-live="polite">
+    <h3 id="out-h">Your timeline</h3>
+    <div id="alerts"></div>
+    <ol class="timeline" id="tl"></ol>
+    <h3>Checklist</h3>
+    <ul class="check" id="cl"></ul>
+    <div class="btns">
+      <button type="button" id="save">Save in this browser</button>
+      <button type="button" class="secondary" id="ics">Download calendar file (.ics)</button>
+      <button type="button" class="secondary" id="print">Print</button>
+    </div>
+    <p class="small">The calendar file is created on your device. Add it to your phone calendar for free alerts.</p>
+    <p class="small">Official sources last checked by us: 28 Sep 2026. Rules can change after that date.</p>
+  </div>
+
+  <div id="saved-wrap" class="card hidden">
+    <h3 class="mt0">Saved in this browser</h3>
+    <div id="saved"></div>
+    <button type="button" class="link" id="wipe">Delete all Mohlat data from this browser</button>
+  </div>
+</section>
+
+<section id="agents" aria-labelledby="agents-h">
+  <h2 id="agents-h">2. Check before you pay a recruiting agent</h2>
+  <p>India’s Ministry of External Affairs (MEA) registers recruiting agents and publishes which ones are active. Before you pay anyone for an overseas job, check them on India’s official eMigrate portal:</p>
+  <ul class="links">
+    <li><a href="https://www.emigrate.gov.in/#/emigrate/emigrant/list-of-ra-consolidate-report" rel="noopener">eMigrate: List of Recruiting Agents (registered, with status)</a></li>
+    <li><a href="https://www.emigrate.gov.in/#/emigrate/recruiting-agent/verify-ra-status" rel="noopener">eMigrate: Verify RA Status</a> (needs the agent’s RA ID or ARN)</li>
+    <li><a href="https://www.emigrate.gov.in/#/emigrate/emigrant/find-recruiting-agent" rel="noopener">eMigrate: Search Recruiting Agent</a></li>
+    <li><a href="https://www.emigrate.gov.in/#/emigrate/recruiting-agent/list-of-unregistered-ra-agencies-or-agents" rel="noopener">eMigrate: List of Unregistered Agencies against which Grievances Received</a> (the illegal/unregistered agents list)</li>
+    <li><a href="https://www.mea.gov.in/ras" rel="noopener">MEA: Recruiting Agents (RAs)</a> and <a href="https://www.mea.gov.in/complaints-against-recruiting-agents" rel="noopener">MEA: Complaints against Recruiting Agents</a></li>
+    <li><a href="https://madad.gov.in/" rel="noopener">MADAD</a>: MEA’s consular grievance portal</li>
+  </ul>
+  <p class="small">If the eMigrate page opens on the home screen, use its menu: Recruiting Agents. Mohlat does not check agents for you and cannot confirm any job offer.</p>
+</section>
+
+<section id="reminders" aria-labelledby="rem-h">
+  <h2 id="rem-h">3. Get WhatsApp or email reminders: founding member</h2>
+  <div class="card">
+    <p>We are starting reminders by hand for a small group of founding members. Email us to join the list. Tell us your country pair and whether you prefer WhatsApp or email. Share only what you are comfortable sharing.</p>
+    <p><a class="button" id="mailto" href="mailto:shashankbhasin21@gmail.com?subject=Mohlat%20reminders&amp;body=Hi%2C%20I%20would%20like%20Mohlat%20reminders.%0A%0ACountry%20pair%3A%20%0APreferred%3A%20WhatsApp%20or%20email%0AWhatsApp%20number%20(optional)%3A%20%0A">Email to join: Mohlat reminders</a></p>
+    <p class="small">No payment is taken on this site. Founding membership pricing will be shared by email before anyone pays. See <a href="refund.html">refund policy</a>.</p>
+  </div>
+</section>
+
+<section aria-labelledby="src-h">
+  <h2 id="src-h">Official sources used</h2>
+  <p class="small">Lead times appear on the timeline only where one of these official pages states them. Everything else is marked “check the official page”. Last checked 28 Sep 2026.</p>
+  <ul class="links small" id="srclist"></ul>
+</section>
+</main>
+
+<footer class="site"><div class="wrap">
+  <p><strong>Mohlat by APEX HOLDING, New Delhi</strong> · <a href="mailto:shashankbhasin21@gmail.com">shashankbhasin21@gmail.com</a></p>
+  <nav aria-label="Legal"><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refunds</a></nav>
+  <p class="small">Information and reminders only. Not legal or immigration advice. Not affiliated with any government. Always confirm on the official site.</p>
+</div></footer>
+<script src="app.js"></script>
+</body>
+</html>
