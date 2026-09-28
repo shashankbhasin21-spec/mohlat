@@ -1,0 +1,63 @@
+:root{--ink:#1d2330;--muted:#5a6272;--line:#dde1e8;--bg:#ffffff;--soft:#f5f7fa;--accent:#0b5d4b;--accent-ink:#ffffff;--warn:#8a4b00;--warn-bg:#fff4e0;--danger:#9b1c1c;--danger-bg:#fdecec;--ok-bg:#e8f5f0}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans Devanagari",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;font-size:16px}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #f0b400;outline-offset:2px}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header.site{border-bottom:1px solid var(--line);background:var(--soft)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px}
+.brand{font-weight:700;font-size:1.15rem;text-decoration:none;color:var(--ink)}
+nav.top a{margin-left:14px;font-size:.95rem}
+.hero{padding:28px 0 8px}
+h1{font-size:1.7rem;line-height:1.25;margin:0 0 8px}
+h2{font-size:1.3rem;margin:32px 0 10px}
+h3{font-size:1.05rem;margin:18px 0 6px}
+.tagline-hi{font-size:1.1rem;color:var(--muted);margin:0 0 12px}
+.lead{margin:0 0 12px}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:.95rem}
+.note.warn{background:var(--warn-bg);border-color:#f1d19a;color:#4a2c00}
+.note.danger{background:var(--danger-bg);border-color:#f3b8b8;color:#5c1010}
+.card{border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0;background:#fff}
+label{display:block;font-weight:600;margin:14px 0 4px}
+.hint{display:block;font-weight:400;color:var(--muted);font-size:.88rem}
+input[type=date],input[type=text],select{width:100%;padding:10px 12px;font-size:1rem;border:1px solid #b9c0cc;border-radius:8px;background:#fff;color:var(--ink)}
+fieldset{border:0;padding:0;margin:0}
+.row{display:grid;grid-template-columns:1fr;gap:0 16px}
+@media(min-width:620px){.row.two{grid-template-columns:1fr 1fr}}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+button,.button{appearance:none;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);padding:11px 16px;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+button.secondary,.button.secondary{background:#fff;color:var(--accent)}
+button.link{background:none;border:0;color:var(--danger);padding:6px 0;font-weight:500;text-decoration:underline}
+.hidden{display:none!important}
+ol.timeline{list-style:none;margin:0;padding:0;border-left:3px solid var(--line);margin-left:6px}
+ol.timeline li{position:relative;padding:0 0 18px 18px}
+ol.timeline li::before{content:"";position:absolute;left:-9px;top:6px;width:15px;height:15px;border-radius:50%;background:#fff;border:3px solid var(--accent)}
+ol.timeline li.k-expiry::before{border-color:var(--danger)}
+ol.timeline li.k-warning::before{border-color:var(--warn)}
+ol.timeline li.k-check::before{border-color:#7a8394}
+.t-date{font-weight:700}
+.t-rel{font-size:.85rem;color:var(--muted);margin-left:6px}
+.badge{display:inline-block;font-size:.75rem;font-weight:700;padding:2px 8px;border-radius:99px;margin-left:6px;vertical-align:middle}
+.badge.now{background:var(--danger-bg);color:var(--danger)}
+.badge.soon{background:var(--warn-bg);color:var(--warn)}
+.badge.past{background:#eceef2;color:#4a5160}
+.t-title{font-weight:600;margin:2px 0}
+.t-detail{margin:2px 0 4px;font-size:.95rem}
+.t-src{font-size:.85rem;color:var(--muted)}
+.t-src a{word-break:break-word}
+ul.check{padding-left:0;list-style:none;margin:6px 0}
+ul.check li{padding:4px 0 4px 28px;position:relative}
+ul.check li input{position:absolute;left:0;top:7px;width:18px;height:18px}
+.links li{margin:6px 0}
+.small{font-size:.88rem;color:var(--muted)}
+.saved-item{display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid var(--line);padding:8px 0}
+.saved-item button{padding:6px 10px;font-size:.9rem}
+footer.site{border-top:1px solid var(--line);margin-top:40px;background:var(--soft);font-size:.92rem}
+footer.site .wrap{padding-top:18px;padding-bottom:24px}
+footer.site nav a{margin-right:14px}
+.doc h1{margin-top:24px}
+.doc p,.doc li{max-width:68ch}
+@media print{header.site,footer.site,#form-card,.btns,#reminders,#agents{display:none}}
+.mt0{margin-top:0}
+label.inline{display:inline;font-weight:400;margin:0}
