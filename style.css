@@ -61,3 +61,6 @@ footer.site nav a{margin-right:14px}
 @media print{header.site,footer.site,#form-card,.btns,#reminders,#agents{display:none}}
 .mt0{margin-top:0}
 label.inline{display:inline;font-weight:400;margin:0}
+.brand{white-space:nowrap}
+nav.top{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px 14px}
+nav.top a{margin-left:0;white-space:nowrap}
