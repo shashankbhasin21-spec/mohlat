@@ -13,7 +13,7 @@
 <body>
 <header class="site"><div class="wrap">
   <a class="brand" href="./">Mohlat <span lang="hi">मोहलत</span></a>
-  <nav class="top" aria-label="Main"><a href="#tool">Timeline</a><a href="#agents">Agent check</a><a href="#reminders">Reminders</a></nav>
+  <nav class="top" aria-label="Main"><a href="#tool">Timeline</a><a href="#agents">Agent check</a><a href="#pricing">Pricing</a><a href="#reminders">Waitlist</a></nav>
 </div></header>
 
 <main class="wrap">
@@ -111,7 +111,7 @@
       <button type="button" class="secondary" id="print">Print</button>
     </div>
     <p class="small">The calendar file is created on your device. Add it to your phone calendar for free alerts.</p>
-    <p class="small">Official sources last checked by us: 28 Sep 2026. Rules can change after that date.</p>
+    <p class="small">Official sources last checked by us: 29 Sep 2026. Rules can change after that date.</p>
   </div>
 
   <div id="saved-wrap" class="card hidden">
@@ -136,17 +136,82 @@
 </section>
 
 <section id="reminders" aria-labelledby="rem-h">
-  <h2 id="rem-h">3. Get WhatsApp or email reminders: founding member</h2>
-  <div class="card">
-    <p>We are starting reminders by hand for a small group of founding members. Email us to join the list. Tell us your country pair and whether you prefer WhatsApp or email. Share only what you are comfortable sharing.</p>
-    <p><a class="button" id="mailto" href="mailto:shashankbhasin21@gmail.com?subject=Mohlat%20reminders&amp;body=Hi%2C%20I%20would%20like%20Mohlat%20reminders.%0A%0ACountry%20pair%3A%20%0APreferred%3A%20WhatsApp%20or%20email%0AWhatsApp%20number%20(optional)%3A%20%0A">Email to join: Mohlat reminders</a></p>
-    <p class="small">No payment is taken on this site. Founding membership pricing will be shared by email before anyone pays. See <a href="refund.html">refund policy</a>.</p>
+  <h2 id="rem-h">3. Pricing and founding waitlist</h2>
+
+  <div id="pricing" class="price-grid" aria-label="Plans">
+    <article class="price-card">
+      <h3 class="mt0">Free</h3>
+      <p class="price-amt">₹0</p>
+      <p class="small">Timeline tool + agent-check links. Runs in your browser. Nothing leaves your device.</p>
+      <ul class="price-feats">
+        <li>India–UAE / Qatar / USA timelines</li>
+        <li>Official government links only</li>
+        <li>Save locally + .ics calendar file</li>
+      </ul>
+    </article>
+    <article class="price-card featured">
+      <p class="price-badge">Founding</p>
+      <h3 class="mt0">Founding Plus</h3>
+      <p class="price-amt">INR 699/yr <span class="price-or">or</span> USD 19.99/yr</p>
+      <p class="small">India price: INR 699/year. Gulf / US: USD 19.99/year. Hand-run WhatsApp or email reminders for your deadlines.</p>
+      <ul class="price-feats">
+        <li>Everything in Free</li>
+        <li>Reminders before key dates</li>
+        <li>Founding rate locked when checkout opens</li>
+      </ul>
+    </article>
+    <article class="price-card">
+      <h3 class="mt0">Family</h3>
+      <p class="price-amt">USD 34.99/yr</p>
+      <p class="small">Up to 6 people on one plan. Same reminder channel for the household.</p>
+      <ul class="price-feats">
+        <li>Everything in Founding Plus</li>
+        <li>Up to 6 people</li>
+        <li>One household waitlist signup</li>
+      </ul>
+    </article>
+  </div>
+
+  <div class="card" id="waitlist-card">
+    <p class="note warn"><strong>Checkout is not live yet.</strong> Join the waitlist; we will email founding price and payment link before anyone pays. No payment is taken on this site.</p>
+    <p>We are taking a small founding waitlist by hand. Share only what you are comfortable sharing. Your browser opens your email app — nothing is sent to a third-party form host.</p>
+
+    <form id="waitlist" novalidate>
+      <label for="wl-name">Name <span class="hint">Optional</span></label>
+      <input type="text" id="wl-name" name="name" maxlength="80" autocomplete="name" placeholder="Your name">
+
+      <label for="wl-email">Email <span class="hint">Required</span></label>
+      <input type="email" id="wl-email" name="email" required maxlength="120" autocomplete="email" placeholder="you@example.com">
+
+      <label for="wl-pair">Country pair</label>
+      <select id="wl-pair" name="pair" required>
+        <option value="India-UAE">India–UAE</option>
+        <option value="India-Qatar">India–Qatar</option>
+        <option value="India-USA">India–USA</option>
+      </select>
+
+      <label for="wl-channel">Preferred channel</label>
+      <select id="wl-channel" name="channel" required>
+        <option value="email">Email</option>
+        <option value="WhatsApp">WhatsApp</option>
+      </select>
+
+      <label for="wl-wa">WhatsApp number <span class="hint">Optional. Include country code if you prefer WhatsApp.</span></label>
+      <input type="tel" id="wl-wa" name="whatsapp" maxlength="40" autocomplete="tel" placeholder="+91 …">
+
+      <p id="wl-err" class="note danger hidden" role="alert"></p>
+      <div class="btns">
+        <button type="submit">Join founding waitlist</button>
+        <a class="button secondary" id="mailto" href="mailto:shashankbhasin21@gmail.com?subject=Mohlat%20founding%20waitlist&amp;body=Hi%2C%20I%20would%20like%20to%20join%20the%20Mohlat%20founding%20waitlist.%0A%0AName%3A%20%0AEmail%3A%20%0ACountry%20pair%3A%20India-UAE%20%2F%20India-Qatar%20%2F%20India-USA%0APreferred%20channel%3A%20WhatsApp%20or%20email%0AWhatsApp%20number%20(optional)%3A%20%0A">Or open email template</a>
+      </div>
+    </form>
+    <p class="small">See <a href="refund.html">refund policy</a>. Founding memberships will be refundable within 7 days of payment once checkout is live.</p>
   </div>
 </section>
 
 <section aria-labelledby="src-h">
   <h2 id="src-h">Official sources used</h2>
-  <p class="small">Lead times appear on the timeline only where one of these official pages states them. Everything else is marked “check the official page”. Last checked 28 Sep 2026.</p>
+  <p class="small">Lead times appear on the timeline only where one of these official pages states them. Everything else is marked “check the official page”. Last checked 29 Sep 2026.</p>
   <ul class="links small" id="srclist"></ul>
 </section>
 </main>
