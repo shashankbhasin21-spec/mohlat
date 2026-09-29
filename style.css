@@ -21,7 +21,7 @@ h3{font-size:1.05rem;margin:18px 0 6px}
 .card{border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0;background:#fff}
 label{display:block;font-weight:600;margin:14px 0 4px}
 .hint{display:block;font-weight:400;color:var(--muted);font-size:.88rem}
-input[type=date],input[type=text],select{width:100%;padding:10px 12px;font-size:1rem;border:1px solid #b9c0cc;border-radius:8px;background:#fff;color:var(--ink)}
+input[type=date],input[type=text],input[type=email],input[type=tel],select{width:100%;padding:10px 12px;font-size:1rem;border:1px solid #b9c0cc;border-radius:8px;background:#fff;color:var(--ink)}
 fieldset{border:0;padding:0;margin:0}
 .row{display:grid;grid-template-columns:1fr;gap:0 16px}
 @media(min-width:620px){.row.two{grid-template-columns:1fr 1fr}}
@@ -64,3 +64,14 @@ label.inline{display:inline;font-weight:400;margin:0}
 .brand{white-space:nowrap}
 nav.top{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px 14px}
 nav.top a{margin-left:0;white-space:nowrap}
+
+.price-grid{display:grid;grid-template-columns:1fr;gap:12px;margin:12px 0 18px}
+@media(min-width:620px){.price-grid{grid-template-columns:1fr 1fr 1fr}}
+.price-card{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fff;display:flex;flex-direction:column;gap:6px}
+.price-card.featured{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent);background:var(--ok-bg)}
+.price-badge{display:inline-block;align-self:flex-start;margin:0;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--accent);color:var(--accent-ink);padding:3px 8px;border-radius:99px}
+.price-amt{font-size:1.15rem;font-weight:700;margin:0;color:var(--accent)}
+.price-or{font-weight:500;color:var(--muted);font-size:.9rem}
+.price-feats{margin:6px 0 0;padding-left:18px;font-size:.92rem}
+.price-feats li{margin:4px 0}
+#waitlist-card .note{margin-bottom:12px}
