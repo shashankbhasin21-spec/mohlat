@@ -74,4 +74,6 @@ nav.top a{margin-left:0;white-space:nowrap}
 .price-or{font-weight:500;color:var(--muted);font-size:.9rem}
 .price-feats{margin:6px 0 0;padding-left:18px;font-size:.92rem}
 .price-feats li{margin:4px 0}
+.price-card .btns{margin-top:auto;padding-top:12px}
+.price-card h3{overflow-wrap:anywhere}
 #buy-card .note{margin-bottom:12px}
