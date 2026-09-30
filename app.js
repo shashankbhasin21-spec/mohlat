@@ -13,7 +13,8 @@
     psp_home: { t: 'Passport Seva (Ministry of External Affairs)', u: 'https://www.passportindia.gov.in/' },
     psp_mission: { t: 'Passport Seva portal for Indian Missions/Posts abroad (apply for re-issue from abroad)', u: 'https://mportal.passportindia.gov.in/mission/' },
     eoi_uae: { t: 'Embassy of India, Abu Dhabi: Passport Services', u: 'https://www.indembassyuae.gov.in/page-links/?page=passport-services&type=sub' },
-    eoi_uae_notice: { t: 'Embassy of India, Abu Dhabi: Public Notice on discontinuation of BLS International and SGIVS (services now provided directly by the Embassy and CGI Dubai)', u: 'https://www.indembassyuae.gov.in/section/home-page-ticker/2public-notice-discontinuation-of-bls-international-and-sgivs-consular-services-now-provided-directly-by-the-embassy-of-india-abu-dhabi-and-the-consulate-general-of-india-dubai/' },
+    eoi_uae_notice: { t: 'Embassy of India, Abu Dhabi notice dated 21 July 2026: Outsourcing of Indian Consular, Passport, Visa & Attestation services in UAE (to Al Hind Tours & Travels w.e.f. 22 July 2026)', u: 'https://www.indembassyuae.gov.in/section/home-page-ticker/outsourcing-of-indian-consular-passport-visa-and-attestation-services-in-uae5/',
+      q: '“The Indian Consular, Passport, Visa & Attestation services in the UAE have been outsourced to Al Hind Tours & Travels w.e.f. 22 July 2026. The services will be provided at 16 (sixteen) Indian Consular Application Centers (ICACs) located across UAE.” “The services will no longer be available at Embassy of India, Abu Dhabi or Consulate General of India, Dubai premises.” (Notice checked 30 Sep 2026.)' },
     cgi_dubai: { t: 'Consulate General of India, Dubai', u: 'https://www.cgidubai.gov.in/' },
     eoi_doha: { t: 'Embassy of India, Doha: Passport Information', u: 'https://indianembassyqatar.gov.in/eoidhpages?id=NQ%2C%2C&subid=OQ%2C%2C',
       q: '“All applicants are advised to submit their applications for renewal of passport upto 1 year before the Expiry Date.”' },
@@ -117,7 +118,7 @@
 
     items.push({ d: addMonths(P, -12), kind: 'start', startLike: true, endD: P,
       title: 'Start your Indian passport re-issue',
-      detail: 'Passport Seva advises applying for re-issue up to 1 year before expiry.' + (o.pair === 'qatar' ? ' The Embassy of India, Doha gives the same advice.' : '') + (o.pair === 'usa' ? ' The Embassy of India, Washington DC lists “expiring within 1 year” as a case for re-issue.' : '') + ' From abroad, you apply through the Indian Embassy/Consulate for where you live.',
+      detail: 'Passport Seva advises applying for re-issue up to 1 year before expiry.' + (o.pair === 'qatar' ? ' The Embassy of India, Doha gives the same advice.' : '') + (o.pair === 'usa' ? ' The Embassy of India, Washington DC lists “expiring within 1 year” as a case for re-issue.' : '') + ' From abroad, you apply through the Indian Embassy/Consulate for where you live.' + (o.pair === 'uae' ? ' In the UAE, per the Embassy of India, Abu Dhabi notice effective 22 July 2026, passport, visa and attestation services are provided by Al Hind Tours & Travels at 16 Indian Consular Application Centers (ICACs) and are no longer available at the Embassy of India, Abu Dhabi or Consulate General of India, Dubai premises. Check the notice for centres and appointment booking.' : ''),
       src: ppSrc.concat(['psp_mission']) });
     items.push({ d: addMonths(P, -6), kind: 'deadline',
       title: 'Passport drops below 6 months validity',
@@ -132,6 +133,7 @@
         src: ['psp_faq'] });
     }
     checklist.push({ text: 'Indian passport: fill the re-issue form on the Passport Seva portal for missions abroad (or Passport Seva in India) and follow your Embassy/Consulate’s steps.', src: ['psp_mission'].concat(mission) });
+    if (o.pair === 'uae') checklist.push({ text: 'UAE: from 22 July 2026 Indian passport, visa and attestation applications go to an Indian Consular Application Center (ICAC) run by Al Hind Tours & Travels, not the Embassy or Consulate premises (Embassy of India, Abu Dhabi notice dated 21 July 2026). Book an appointment as the notice describes.', src: ['eoi_uae_notice'] });
 
     if (o.pair === 'uae') {
       var V = parse(o.uaeDate);
